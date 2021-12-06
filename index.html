@@ -4,10 +4,63 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
   <title>Document</title>
 </head>
 <body>
-  
+
+      <header class="vw-100 bg-primary bg-gradient" style="height: 80px">
+        <h1 class="text-white text-center fs-2">
+          Weather Dashboard
+        </h1>
+      </header>
+
+      <main class="container">
+        <div class="row">
+          <div class="col-3">
+            Search for a City:
+            <input class="form-control my-3" type="text" placeholder="Search" aria-label="default input example">
+
+            <button type="button my-3" class="btn btn-primary">Search</button>
+            <span class="border border-bottom border-3 border-secondary"></span>
+
+            <button type="button my-3" class="btn btn-secondary">Test Memory City</button>
+          </div>
+          <div class="col-9">
+            <div class="row">
+              <div class="col border border-secondary border-2" style="height: 250px">
+                Current City
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                5-Day Forecast:
+              </div>
+            </div>
+            <div class="row">
+              <div class="col border border-secondary border-2" style="height: 150px">
+                1
+              </div>
+              <div class="col border border-secondary border-2" style="height: 150px">
+                2
+              </div>
+              <div class="col border border-secondary border-2" style="height: 150px">
+                3
+              </div>
+              <div class="col border border-secondary border-2" style="height: 150px">
+                4
+              </div>
+              <div class="col border border-secondary border-2" style="height: 150px">
+                5
+              </div>
+            </div>  
+          </div>
+        </div>
+      </main>
+
+
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src="./assets/js/script.js"></script>
 </body>
 </html>

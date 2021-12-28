@@ -17,69 +17,24 @@
 
       <main class="container">
         <div class="row">
-          <div class="col-3">
+          <div id="city-div" class="col-3">
             <h3 class="fs-1">
               Search for a City:
             </h3>
-            <input class="form-control my-3" type="text" placeholder="Search" aria-label="default input example">
-
-            <button type="button mx-3" class="col mb-4 btn btn-primary">Search</button>
-
-            <button type="button mx-3" class="col my-1 btn btn-secondary">Test Memory City</button>
+            <input id="city-input" class="form-control my-3" type="text" placeholder="Search" aria-label="default input example">
+            <button id="search-button" type="button mx-3" class="col mb-4 btn btn-primary">Search</button>
           </div>
           <div class="col-9">
-            <div class="row">
-              <div class="col border border-secondary border-2" style="height: 250px">
-                <h3 id="current-city"></h3><span><img in="cur-img" ></span></br>
-                <p id="cur-temp"></p></br>
-                <p id="cur-wind"></p></br>
-                <p id="cur-hum"></p></br>
-                <p id="cur-uv"></p></br>
-              </div>
+            <div class="row" id="cur-div">
             </div>
             <div class="row">
-              <div class="col">
-                <h4>
+              <div class="col mb-2">
+                <h4 class="fw-bold">
                   5-Day Forecast:
                 </h4>
               </div>
             </div>
-            <div class="row">
-              <div class="col bg-info d-flex justify-content-between mx-2" style="height: 150px">
-                <h5 id="1-date" class="text-white"></h5></br>
-                <img id="1-img">
-                <p id="1-temp" class="text-white"></p></br>
-                <p id="1-wind" class="text-white"></p></br>
-                <p id="1-hum" class="text-white"></p></br>
-              </div>
-              <div class="col bg-info d-flex justify-content-between mx-2" style="height: 150px">
-                <h5 id="2-date" class="text-white"></h5>
-                <img id="2-img">
-                <p id="2-temp" class="text-white"></p></br>
-                <p id="2-wind" class="text-white"></p></br>
-                <p id="2-hum" class="text-white"></p></br>
-              </div>
-              <div class="col bg-info d-flex justify-content-between mx-2" style="height: 150px">
-                <h5 id="3-date" class="text-white"></h5>
-                <img id="3-img">
-                <p id="3-temp" class="text-white"></p></br>
-                <p id="3-wind" class="text-white"></p></br>
-                <p id="3-hum" class="text-white"></p></br>
-              </div>
-              <div class="col bg-info d-flex justify-content-between mx-2" style="height: 150px">
-                <h5 id="4-date" class="text-white"></h5>
-                <img id="4-img">
-                <p id="4-temp" class="text-white"></p></br>
-                <p id="4-wind" class="text-white"></p></br>
-                <p id="4-hum" class="text-white"></p></br>
-              </div>
-              <div class="col bg-info d-flex justify-content-between mx-2" style="height: 150px">
-                <h5 id="5-date" class="text-white"></h5>
-                <img id="5-img">
-                <p id="5-temp" class="text-white"></p></br>
-                <p id="5-wind" class="text-white"></p></br>
-                <p id="5-hum" class="text-white"></p></br>
-              </div>
+            <div class="row" id="five-day">
             </div>  
           </div>
         </div>

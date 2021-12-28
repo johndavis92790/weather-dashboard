@@ -9,6 +9,7 @@ function checkStorage() {
     appendCities();
   }
 }
+
 function appendCities() {
   var a = [];
   a = JSON.parse(localStorage.getItem('session')) || [];
@@ -16,14 +17,10 @@ function appendCities() {
     appendCity(a[i]);
   }
 }
+
 function appendCity(city){
   var cityId = city.split(' ').join('-');
-  var appendCity = $('<button>')
-        .text(city)
-        .attr('id', cityId)
-        .addClass('col my-1 btn btn-secondary')
-        .attr('type', 'button mx-3')
-        .appendTo(cityDiv);
+  var appendCity = $('<button>').text(city).attr('id', cityId).addClass('col my-1 btn btn-secondary').attr('type', 'button mx-3').appendTo(cityDiv);
   $('#' + cityId).on("click", function () {
     checkCity(city);
   });
@@ -78,12 +75,7 @@ function checkStorageCity(city, locationObj) {
 
 function appendCityLoc(city, locationObj){
   var cityId = city.split(' ').join('-');
-  var appendCity = $('<button>')
-        .text(city)
-        .attr('id', cityId)
-        .addClass('col my-1 btn btn-secondary')
-        .attr('type', 'button mx-3')
-        .appendTo(cityDiv);
+  var appendCity = $('<button>').text(city).attr('id', cityId).addClass('col my-1 btn btn-secondary').attr('type', 'button mx-3').appendTo(cityDiv);
   saveCity(city);
   getWeather(locationObj);
   $('#' + cityId).on("click", function () {
@@ -155,7 +147,6 @@ function getWeather(locationObj){
         'city_short' : locationObj.name_short,
         'city_long' : locationObj.name
       }
-      // console.log('weatherObj', weatherObj);
       appendData(weatherObj);
     })
     .catch(function (err) {
@@ -167,19 +158,10 @@ function getWeather(locationObj){
 
 function appendData(weatherObj) {
  
-  var curDiv = $('<div>')
-              .addClass('col border border-secondary border-2 my-2')
-              .attr('style', 'height: 220px')
-              .appendTo(currentDiv);
-  var curCity = $('<h4>')
-              .text(weatherObj.city_long + ' ' + dayjs().format('(M/D/YYYY)'))
-              .appendTo(curDiv);
+  var curDiv = $('<div>').addClass('col border border-secondary border-2 my-2').attr('style', 'height: 220px').appendTo(currentDiv);
+  var curCity = $('<h4>').text(weatherObj.city_long + ' ' + dayjs().format('(M/D/YYYY)')).appendTo(curDiv);
   var curSpan = $('<span>').appendTo(curCity);
-  var curImg = $('<img>')
-              .attr('src', weatherObj[0].img)
-              .attr('alt', weatherObj[0].img_text)
-              .attr('style', 'height: 40px')
-              .appendTo(curSpan);
+  var curImg = $('<img>').attr('src', weatherObj[0].img).attr('alt', weatherObj[0].img_text).attr('style', 'height: 40px').appendTo(curSpan);
   var curTemp = $('<p>').text('Temp: ' + weatherObj[0].temp + ' °F').appendTo(curDiv);
   var curWind = $('<p>').text('Wind: ' + weatherObj[0].wind + ' MPH').appendTo(curDiv);
   var curHum = $('<p>').text('Humidity: ' + weatherObj[0].hum + '%').appendTo(curDiv);
@@ -194,135 +176,40 @@ function appendData(weatherObj) {
     curUVSpan.addClass('badge bg-danger').appendTo(curUV);
   }
 
-  var oneDayDiv = $('<div>')
-              .addClass('col bg-info mx-2 border border-secondary')
-              .attr('style', 'height: 200px')
-              .appendTo(dayDiv);
-  var oneDayDate = $('<h5>')
-              .text(dayjs().add(1, 'day').format('M/D/YYYY'))
-              .addClass('text-white pt-2')
-              .appendTo(oneDayDiv);
-  var oneDayImg = $('<img>')
-              .attr('src', weatherObj[1].img)
-              .attr('alt', weatherObj[1].img_text)
-              .attr('style', 'height: 40px')
-              .appendTo(oneDayDiv);
-  var oneDayTemp = $('<p>')
-              .text('Temp: ' + weatherObj[1].temp + ' °F')
-              .addClass('text-white')
-              .appendTo(oneDayDiv);
-  var oneDayWind = $('<p>')
-              .text('Wind: ' + weatherObj[1].wind + ' MPH')
-              .addClass('text-white')
-              .appendTo(oneDayDiv);
-  var oneDayHum = $('<p>')
-              .text('Humidity: ' + weatherObj[1].hum + '%')
-              .addClass('text-white')
-              .appendTo(oneDayDiv);
+  var oneDayDiv = $('<div>').addClass('col bg-info mx-2 border border-secondary').attr('style', 'height: 200px').appendTo(dayDiv);
+  var oneDayDate = $('<h5>').text(dayjs().add(1, 'day').format('M/D/YYYY')).addClass('text-white pt-2').appendTo(oneDayDiv);
+  var oneDayImg = $('<img>').attr('src', weatherObj[1].img).attr('alt', weatherObj[1].img_text).attr('style', 'height: 40px').appendTo(oneDayDiv);
+  var oneDayTemp = $('<p>').text('Temp: ' + weatherObj[1].temp + ' °F').addClass('text-white').appendTo(oneDayDiv);
+  var oneDayWind = $('<p>').text('Wind: ' + weatherObj[1].wind + ' MPH').addClass('text-white').appendTo(oneDayDiv);
+  var oneDayHum = $('<p>').text('Humidity: ' + weatherObj[1].hum + '%').addClass('text-white').appendTo(oneDayDiv);
+  
+  var twoDayDiv = $('<div>').addClass('col bg-info mx-2 border border-secondary').attr('style', 'height: 200px').appendTo(dayDiv);
+  var twoDayDate = $('<h5>').text(dayjs().add(2, 'day').format('M/D/YYYY')).addClass('text-white pt-2').appendTo(twoDayDiv);
+  var twoDayImg = $('<img>').attr('src', weatherObj[2].img).attr('alt', weatherObj[2].img_text).attr('style', 'height: 40px').appendTo(twoDayDiv);
+  var twoDayTemp = $('<p>').text('Temp: ' + weatherObj[2].temp + ' °F').addClass('text-white').appendTo(twoDayDiv);
+  var twoDayWind = $('<p>').text('Wind: ' + weatherObj[2].wind + ' MPH').addClass('text-white').appendTo(twoDayDiv);
+  var twoDayHum = $('<p>').text('Humidity: ' + weatherObj[2].hum + '%').addClass('text-white').appendTo(twoDayDiv);
 
-  var twoDayDiv = $('<div>')
-              .addClass('col bg-info mx-2 border border-secondary')
-              .attr('style', 'height: 200px')
-              .appendTo(dayDiv)
-  var twoDayDate = $('<h5>')
-              .text(dayjs().add(2, 'day').format('M/D/YYYY'))
-              .addClass('text-white pt-2')
-              .appendTo(twoDayDiv);
-  var twoDayImg = $('<img>')
-              .attr('src', weatherObj[2].img)
-              .attr('alt', weatherObj[2].img_text)
-              .attr('style', 'height: 40px')
-              .appendTo(twoDayDiv);
-  var twoDayTemp = $('<p>')
-              .text('Temp: ' + weatherObj[2].temp + ' °F')
-              .addClass('text-white')
-              .appendTo(twoDayDiv);
-  var twoDayWind = $('<p>')
-              .text('Wind: ' + weatherObj[2].wind + ' MPH')
-              .addClass('text-white')
-              .appendTo(twoDayDiv);
-  var twoDayHum = $('<p>')
-              .text('Humidity: ' + weatherObj[2].hum + '%')
-              .addClass('text-white')
-              .appendTo(twoDayDiv);
+  var threeDayDiv = $('<div>').addClass('col bg-info mx-2 border border-secondary').attr('style', 'height: 200px').appendTo(dayDiv);
+  var threeDayDate = $('<h5>').text(dayjs().add(3, 'day').format('M/D/YYYY')).addClass('text-white pt-2').appendTo(threeDayDiv);
+  var threeDayImg = $('<img>').attr('src', weatherObj[3].img).attr('alt', weatherObj[3].img_text).attr('style', 'height: 40px').appendTo(threeDayDiv);
+  var threeDayTemp = $('<p>').text('Temp: ' + weatherObj[3].temp + ' °F').addClass('text-white').appendTo(threeDayDiv);
+  var threeDayWind = $('<p>').text('Wind: ' + weatherObj[3].wind + ' MPH').addClass('text-white').appendTo(threeDayDiv);
+  var threeDayHum = $('<p>').text('Humidity: ' + weatherObj[3].hum + '%').addClass('text-white').appendTo(threeDayDiv);
 
-  var threeDayDiv = $('<div>')
-              .addClass('col bg-info mx-2 border border-secondary')
-              .attr('style', 'height: 200px')
-              .appendTo(dayDiv)            
-  var threeDayDate = $('<h5>')
-              .text(dayjs().add(3, 'day').format('M/D/YYYY'))
-              .addClass('text-white pt-2')
-              .appendTo(threeDayDiv);
-  var threeDayImg = $('<img>')
-              .attr('src', weatherObj[3].img)
-              .attr('alt', weatherObj[3].img_text)
-              .attr('style', 'height: 40px')
-              .appendTo(threeDayDiv);
-  var threeDayTemp = $('<p>')
-              .text('Temp: ' + weatherObj[3].temp + ' °F')
-              .addClass('text-white')
-              .appendTo(threeDayDiv);
-  var threeDayWind = $('<p>')
-              .text('Wind: ' + weatherObj[3].wind + ' MPH')
-              .addClass('text-white')
-              .appendTo(threeDayDiv);
-  var threeDayHum = $('<p>')
-              .text('Humidity: ' + weatherObj[3].hum + '%')
-              .addClass('text-white')
-              .appendTo(threeDayDiv);
+  var fourDayDiv = $('<div>').addClass('col bg-info mx-2 border border-secondary').attr('style', 'height: 200px').appendTo(dayDiv);
+  var fourDayDate = $('<h5>').text(dayjs().add(4, 'day').format('M/D/YYYY')).addClass('text-white pt-2').appendTo(fourDayDiv);
+  var fourDayImg = $('<img>').attr('src', weatherObj[4].img).attr('alt', weatherObj[4].img_text).attr('style', 'height: 40px').appendTo(fourDayDiv);
+  var fourDayTemp = $('<p>').text('Temp: ' + weatherObj[4].temp + ' °F').addClass('text-white').appendTo(fourDayDiv);
+  var fourDayWind = $('<p>').text('Wind: ' + weatherObj[4].wind + ' MPH').addClass('text-white').appendTo(fourDayDiv);
+  var fourDayHum = $('<p>').text('Humidity: ' + weatherObj[4].hum + '%').addClass('text-white').appendTo(fourDayDiv);
 
-  var fourDayDiv = $('<div>')
-              .addClass('col bg-info mx-2 border border-secondary')
-              .attr('style', 'height: 200px')
-              .appendTo(dayDiv)
-  var fourDayDate = $('<h5>')
-              .text(dayjs().add(4, 'day').format('M/D/YYYY'))
-              .addClass('text-white pt-2')
-              .appendTo(fourDayDiv);
-  var fourDayImg = $('<img>')
-              .attr('src', weatherObj[4].img)
-              .attr('alt', weatherObj[4].img_text)
-              .attr('style', 'height: 40px')
-              .appendTo(fourDayDiv);
-  var fourDayTemp = $('<p>')
-              .text('Temp: ' + weatherObj[4].temp + ' °F')
-              .addClass('text-white')
-              .appendTo(fourDayDiv);
-  var fourDayWind = $('<p>')
-              .text('Wind: ' + weatherObj[4].wind + ' MPH')
-              .addClass('text-white')
-              .appendTo(fourDayDiv);
-  var fourDayHum = $('<p>')
-              .text('Humidity: ' + weatherObj[4].hum + '%')
-              .addClass('text-white')
-              .appendTo(fourDayDiv);
-
-  var fiveDayDiv = $('<div>')
-              .addClass('col bg-info mx-2 border border-secondary')
-              .attr('style', 'height: 200px')
-              .appendTo(dayDiv)
-  var fiveDayDate = $('<h5>')
-              .text(dayjs().add(5, 'day').format('M/D/YYYY'))
-              .addClass('text-white pt-2')
-              .appendTo(fiveDayDiv);
-  var fiveDayImg = $('<img>')
-              .attr('src', weatherObj[5].img)
-              .attr('alt', weatherObj[5].img_text)
-              .attr('style', 'height: 40px')
-              .appendTo(fiveDayDiv);
-  var fiveDayTemp = $('<p>')
-              .text('Temp: ' + weatherObj[5].temp + ' °F')
-              .addClass('text-white')
-              .appendTo(fiveDayDiv);
-  var fiveDayWind = $('<p>')
-              .text('Wind: ' + weatherObj[5].wind + ' MPH')
-              .addClass('text-white')
-              .appendTo(fiveDayDiv);
-  var fiveDayHum = $('<p>')
-              .text('Humidity: ' + weatherObj[5].hum + '%')
-              .addClass('text-white')
-              .appendTo(fiveDayDiv);
+  var fiveDayDiv = $('<div>').addClass('col bg-info mx-2 border border-secondary').attr('style', 'height: 200px').appendTo(dayDiv);
+  var fiveDayDate = $('<h5>').text(dayjs().add(5, 'day').format('M/D/YYYY')).addClass('text-white pt-2').appendTo(fiveDayDiv);
+  var fiveDayImg = $('<img>').attr('src', weatherObj[5].img).attr('alt', weatherObj[5].img_text).attr('style', 'height: 40px').appendTo(fiveDayDiv);
+  var fiveDayTemp = $('<p>').text('Temp: ' + weatherObj[5].temp + ' °F').addClass('text-white').appendTo(fiveDayDiv);
+  var fiveDayWind = $('<p>').text('Wind: ' + weatherObj[5].wind + ' MPH').addClass('text-white').appendTo(fiveDayDiv);
+  var fiveDayHum = $('<p>').text('Humidity: ' + weatherObj[5].hum + '%').addClass('text-white').appendTo(fiveDayDiv);
 }
 
 document.querySelector("#search-button").addEventListener("click", function (event) {

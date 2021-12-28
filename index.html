@@ -5,44 +5,42 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
-  <title>Document</title>
+  <title>Weather Dashboard</title>
 </head>
 <body>
 
-      <header class="vw-100 bg-primary bg-gradient" style="height: 80px">
-        <h1 class="text-white text-center fs-2">
-          Weather Dashboard
-        </h1>
-      </header>
+  <header class="vw-100 bg-primary bg-gradient" style="height: 85px">
+    <h1 class="text-white text-center fs-2 pt-3">
+      Weather Dashboard
+    </h1>
+  </header>
 
-      <main class="container">
+  <main class="container">
+    <div class="row">
+      <div id="city-div" class="col-3">
+        <h3 class="fs-1 pt-2">
+          Search for a City:
+        </h3>
+        <input id="city-input" class="form-control my-3" type="text" placeholder="Search" aria-label="default input example">
+        <button id="search-button" type="button mx-3" class="col mb-4 btn btn-primary">Search</button>
+      </div>
+      <div class="col-9">
+        <div class="row" id="cur-div">
+        </div>
         <div class="row">
-          <div id="city-div" class="col-3">
-            <h3 class="fs-1">
-              Search for a City:
-            </h3>
-            <input id="city-input" class="form-control my-3" type="text" placeholder="Search" aria-label="default input example">
-            <button id="search-button" type="button mx-3" class="col mb-4 btn btn-primary">Search</button>
-          </div>
-          <div class="col-9">
-            <div class="row" id="cur-div">
-            </div>
-            <div class="row">
-              <div class="col mb-2">
-                <h4 class="fw-bold">
-                  5-Day Forecast:
-                </h4>
-              </div>
-            </div>
-            <div class="row" id="five-day">
-            </div>  
+          <div class="col mb-2">
+            <h4 class="fw-bold pt-2">
+              5-Day Forecast:
+            </h4>
           </div>
         </div>
-      </main>
+        <div class="row" id="five-day">
+        </div>  
+      </div>
+    </div>
+  </main>
 
-
-  <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js">
-  </script>
+  <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src="./assets/js/script.js"></script>

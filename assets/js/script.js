@@ -15,7 +15,7 @@ function checkStorage() {
 // appends cities in localStorage to page as buttons, one at a time
 function appendCities() {
   var a = [];
-  a = JSON.parse(localStorage.getItem('session')) || [];
+  a = JSON.parse(localStorage.getItem('weather')) || [];
   for(var i = 0 ; i < a.length; i++) {
     appendCity(a[i]);
   }
@@ -63,7 +63,7 @@ function checkStorageCity(city, locationObj) {
   // if localStorage is not empty
   if (localStorage.length > 0) {
     var a = [];
-    a = JSON.parse(localStorage.getItem('session')) || [];
+    a = JSON.parse(localStorage.getItem('weather')) || [];
     var search = false;
     // checks each object in the localStorage array if it matches the city in the input field
     for(var i = 0 ; i < a.length; i++) {
@@ -104,11 +104,11 @@ function appendCityLoc(city, locationObj){
 function saveCity(city){
   var a = [];
   // create array from localStorage data
-  a = JSON.parse(localStorage.getItem('session')) || [];
+  a = JSON.parse(localStorage.getItem('weather')) || [];
   // Push the new data (city name) onto the array
   a.push(city);
   // Reset the array back into a string and store it in localStorage
-  localStorage.setItem('session', JSON.stringify(a));
+  localStorage.setItem('weather', JSON.stringify(a));
 }
 
 // gets weather data from API
